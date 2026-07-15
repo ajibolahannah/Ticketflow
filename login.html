@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <title>Login</title>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="img">
+            <img src="./logo.png" alt="logo" class="logo" width="200">
+        </div>
+        <div class="nav-container">
+            <button class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how">How it works</a></li>
+                
+            </ul>
+        </div>
+        <div class="reg">
+            <button class="login"><a href="./login.html">Login</a></button>
+            <button class="signup"><a href="">Signup</a></button>
+        </div>
+    </nav>
+</body>
+<script>
+    let navToggle = document.querySelector('.nav-toggle')
+    let navLinks = document.querySelector('.nav-links')
+    let reg = document.querySelector('.reg')
+    let links = document.querySelectorAll(".nav-links a");
+    navToggle.addEventListener('click', () =>{
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        reg.classList.toggle('active');
+        document.body.classList.toggle("no-scroll");
+    })
+    links.forEach(link => {
+    link.addEventListener("click", () => {
+
+        navToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+        reg.classList.remove("active");
+        document.body.classList.remove("no-scroll");
+
+    });
+    });
+</script>
+</html>

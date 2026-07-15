@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(180deg,#F8FAFC 0%,  #E8F0FF 100%);
+    min-height:100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    box-shadow: 1px 1px 1px rgb(0, 0, 0.1);
+    background-color: #0F172A;
+    height: 90px;
+
+}
+.logo{
+    width: 180px;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+}
+.nav-toggle{
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+.bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: white;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+ }
+.nav-links{
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin-bottom: -5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFF;
+
+
+}
+.nav-links li a{
+    text-decoration: none;
+    color: inherit;
+    transition: all .3s ease;
+    position: relative;
+    
+}
+.nav-links li a.active{
+    color:#14B8A6;
+}
+.nav-links li a:hover{
+    cursor: pointer;
+    color: #14B8A6;
+}
+.nav-links li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:2px;
+
+    background:#14B8A6;
+    transition:.3s ease;
+}
+.nav-links li a:hover::after{
+    width:100%;
+}
+
+.navbar button a{
+    text-decoration: none;
+    color: inherit;
+    
+}
+.navbar button{
+    padding: 10px 20px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.login{
+    background: none;
+    color:  #3B82F6;
+    border: 2px solid  #3B82F6;
+}
+.login:hover{
+    background-color:  #3B82F6;
+    color: #FFFF;
+    transition: 0.3s;
+}
+.signup{
+    background-color:  #3B82F6;
+    color: #FFFF; 
+    border: 2px solid  #3B82F6;
+}
+.signup:hover{
+    background: none;
+    color:  #3B82F6;
+    border: 2px solid  #3B82F6;
+    transition: 0.3s;
+}
