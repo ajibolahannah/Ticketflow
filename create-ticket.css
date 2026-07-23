@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+   min-height: 100vh;
+   font-family: 'Poppins', sans-serif;
+   background-color: #dce6f2;
+}
+.logo{
+    width: 135px;
+    height: auto;
+    border-radius:100%;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+.navbar-toggle{
+    display: none;
+    transition: 0.3s;
+}
+
+.bar{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(58, 43, 91);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+.sidenav{
+    width: 210px;
+    height: 100vh;
+    position: fixed;
+    background-color: #0F172A;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    color: #ffff;
+}
+h4{
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    
+} 
+h4 span{
+    font-size: 17px;
+    font-weight: 400;
+    color:rgba(88, 17, 212, 0.727);
+}
+.sidenav ul{
+    list-style: none;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+
+}
+.sidenav ul li a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px 16px;
+    border-radius:10px;
+    transition:.3s;
+    color: #ffff;
+    transition: all 0.3s ease;
+}
+.sidenav ul li a:hover{
+    background:#24334a;
+    transform:translateX(6px);
+}
+.sidenav li{
+    margin: 1rem 0;
+}
+.sidenav li .active{
+    background:#2563EB;
+    color:white;
+}
+.create{
+    margin-left:280px;
+    padding:15px;
+    animation: fadeIn 0.7s ease;
+}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.create-header a{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-size:0.95rem;
+    font-weight:500;
+    color: #2563EB;
+    text-decoration: none;
+}
+.create-header h2{
+    font-size:2rem;
+    color:#0F172A;
+}
+
+.create-header p{
+    color:#64748B;
+    font-size:1rem;
+    margin-top:8px;
+}
+.form{
+    background-color: #ffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 700px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+form label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #0F172A;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #CBD5E1;
+    border-radius:10px;
+    font-size:15px;
+    background:#F8FAFC;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#2563EB;
+    background:#fff;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+textarea{
+    resize:vertical;
+    min-height:140px;
+}
+button[type="submit"]{
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button[type="submit"]:hover{
+    background:#1D4ED8;
+    transform:translateY(-2px);
+}
+.form-group{
+    margin-bottom:10px;
+}
+@media (max-width:780px){
+    .sidenav{
+        width:210px;
+        height:100vh;
+        position:fixed;
+        top:0;
+        right:-260px;      /* Hide it off the screen */
+        background:#0F172A;
+        padding:15px;
+        display:flex;
+        flex-direction:column;
+        transition:right .3s ease; /* Animate the movement */
+    }
+
+    .sidenav.active{
+        right: 0;
+    }
+    .sidenav.active{
+        display:flex;
+    }
+    .navbar-toggle{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position:fixed;
+        top: 20px;
+        right: 15px;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 1000;
+        cursor: pointer;
+    }
+    .navbar-toggle:hover{
+        background-color:#0F172A;
+        transform: scale(1.08);
+    .bar{
+            background-color:white;
+        }
+    }
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate( 45deg);
+    }
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate( -45deg);
+    }
+    .create{
+        margin-left: 0;
+        margin-top: 3rem;
+        padding: 24px;
+    }
+}

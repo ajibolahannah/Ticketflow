@@ -119,6 +119,7 @@ body{
 .hero{
     line-height: 2pc;
     padding: 5rem 4rem;
+    margin-bottom: -4rem;
     display:flex;
     justify-content: center;
     align-items:center; 
@@ -130,23 +131,22 @@ body{
     max-width:550px;
     width:100%;
 }
-.hero-right{
+/* .hero-right{
     flex: 1;
     display: flex;
     justify-content: center;
-}
+} */
 .dash{
-    width: 550px;
+    width: 700px;
     max-width: 100%;
     border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    box-shadow: 0 30px 60px rgba(15,23,42,0.22);
     animation: fadeUp 0.8s ease forwards;
     opacity: 0;
     animation-delay:0.3s ;
 
+
 }
-
-
 .hero h1{
     font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: 700;
@@ -237,26 +237,60 @@ body{
     margin-top: 3rem;
     animation: fadeUp 0.8s ease forwards;
 }
-.card{
+.features-card{
     width:100%;
     max-width:350px;
     padding: 2rem;
     margin: 2rem ;
     box-shadow:0 12px 35px rgba(15,23,42,.10);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items:center;
     border-radius: 20px;
-
-
-}
-.card{
+    background: #fff;
     transition:.3s ease;
-}
 
-.card:hover{
+
+}
+.features-card:hover{
     transform:translateY(-8px);
     box-shadow:0 20px 40px rgba(15,23,42,.12);
+}
+.features{
+    background:#fff;
+}
+
+.how{
+    background:#F8FAFC;
+}
+
+.faq-section{
+    background:#fff;
+}
+.how-card{
+    width:100%;
+    max-width:350px;
+    padding: 2rem;
+    margin: 2rem ;
+    box-shadow:0 12px 35px rgba(15,23,42,.10);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    border-radius: 20px;
+    background: #fff;
+    transition:.3s ease;
+
+
+}
+.how-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(15,23,42,.12);
+}
+
+.how{
+    background:#F8FAFC;
 }
 .icon-box{
 width:64px;
@@ -644,7 +678,7 @@ align-items:center;
     transform:translateY(-4px);
 }
 
-.container{
+.page-container{
     width:min(1200px,90%);
     margin:auto;
 }
