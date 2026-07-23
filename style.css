@@ -233,15 +233,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     margin-top: 3rem;
     animation: fadeUp 0.8s ease forwards;
 }
-.features-card{
+.features-card, .how-card{
     width:100%;
     max-width:350px;
     padding: 2rem;
-    margin: 2rem ;
+    margin: 23px;
     box-shadow:0 12px 35px rgba(15,23,42,.10);
     display: flex;
     flex-direction: column;
@@ -250,10 +250,11 @@ body{
     border-radius: 20px;
     background: #fff;
     transition:.3s ease;
+    height: 350px;
 
 
 }
-.features-card:hover{
+.features-card, .how-card:hover{
     transform:translateY(-8px);
     box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
@@ -261,26 +262,7 @@ body{
     transform:translateY(-8px);
     box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
-.how-card{
-    width:100%;
-    max-width:350px;
-    padding: 2rem;
-    margin: 2rem ;
-    box-shadow:0 12px 35px rgba(15,23,42,.10);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    border-radius: 20px;
-    background: #fff;
-    transition:.3s ease;
 
-
-}
-.how-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(15,23,42,.12);
-}
 
 
 .icon-box{
@@ -304,7 +286,7 @@ align-items:center;
     color: #FFFF;
     font-weight: 900;
 }
-.card h3{
+.features-card h3, .how-card h3{
     font-size: clamp(1.4rem, 2vw, 2rem);
 }
 .learn-more{
@@ -463,14 +445,8 @@ align-items:center;
 .faq-item.active .icon{
     transform:rotate(45deg);
 }
-.features,
-.how,
-.faq-section{
-    padding:7rem 2rem;
-}
-.cta{
-    padding:6rem 2rem;
-}
+
+
 
 .cta-content{
     max-width:1100px;
@@ -669,10 +645,10 @@ align-items:center;
     transform:translateY(-4px);
 }
 
-.page-container{
-    width:min(1200px,90%);
+/* .page-container{
+    width:1200px;
     margin:auto;
-}
+} */
 @media (max-width:980px) {
    
     .nav-links, .reg{
@@ -738,6 +714,11 @@ align-items:center;
    .navbar{
     padding:0 1rem;
    }
+   .cards{
+    flex-wrap:wrap;
+    }
 
-   
+
+
+
 } 
