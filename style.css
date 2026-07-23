@@ -257,16 +257,9 @@ body{
     transform:translateY(-8px);
     box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
-.features{
-    background:#fff;
-}
-
-.how{
-    background:#F8FAFC;
-}
-
-.faq-section{
-    background:#fff;
+.how-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
 .how-card{
     width:100%;
@@ -289,9 +282,7 @@ body{
     box-shadow:0 20px 40px rgba(15,23,42,.12);
 }
 
-.how{
-    background:#F8FAFC;
-}
+
 .icon-box{
 width:64px;
 height:64px;
