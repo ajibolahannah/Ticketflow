@@ -104,6 +104,7 @@ h4 span{
     font-weight:500;
     color: #2563EB;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 .create-header h2{
     font-size:2rem;
@@ -265,22 +266,28 @@ h4 span{
     color:#94A3B8;
 }
 
-.ticket-footer button{
+
+.view-btn{
     background:#2563EB;
     color:#fff;
     border:none;
-    padding:10px 18px;
+    padding:12px;
     border-radius:8px;
     cursor:pointer;
     font-weight:600;
     transition:.3s;
-    width:100%;
+    text-align:center;
+    width: 100%;
+    box-sizing:border-box;
 }
-
-.ticket-footer button:hover{
+a{
+    text-decoration:none;
+}
+.view-btn:hover{
     background:#1D4ED8;
     transform: translateY(-2px);
 }
+
 
 
 
