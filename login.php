@@ -1,3 +1,42 @@
+<?php
+require 'sqlicon.php';
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = mysqli_prepare($con, "SELECT id, name, password, role FROM users WHERE email = ?");
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+    mysqli_stmt_bind_result($stmt, $id, $name, $dbPassword, $role);
+    mysqli_stmt_fetch($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) > 0 && $password === $dbPassword) {
+        session_start();
+        $_SESSION['user_id'] = $id;
+        $_SESSION['name'] = $name;
+        $_SESSION['role'] = $role;
+
+        if ($role === 'support') {
+            header("Location: admin_dashboard.php");
+        } else {
+            header("Location: user_dash.php");
+        }
+        exit;
+    } else {
+        echo '<script>alert("Invalid email or password.");window.location.href = "login.php";</script>';
+    }
+}
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +64,12 @@
             </ul>
         </div>
         <div class="reg">
-            <button class="login"><a href="./login.html">Login</a></button>
-            <button class="signup"><a href="./signup.html">Signup</a></button>
+            <button class="login"><a href="./login.php">Login</a></button>
+            <button class="signup"><a href="./signup.php">Signup</a></button>
         </div>
     </nav>
 
-    <section class="card">
+     <section class="card">
         <div class="text">
             <h2 class="wlc">Welcome back!</h2>
             <p>Login to your account to continue</p>
@@ -39,21 +78,16 @@
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <div class="remember-row">
-            <div class="remember">
-
-                <input type="checkbox" id="remember">
-
-                <label for="remember">Remember me</label>
-
+                <div class="remember">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a href="" class="forgot">Forgot Password?</a>
             </div>
-            <a href="" class="forgot">Forgot Password?</a>
-            </div>
-            
-            <button type="submit" href="./user_dash.html">Login</button>
-            <p>Don't have an account? <a href="./signup.html">Sign up</a></p>
+            <button type="submit" name="submit">Login</button>
+            <p>Don't have an account? <a href="./signup.php">Sign up</a></p>
         </form>
     </section>
-
 
      <footer class="footer">
             <div class="container">

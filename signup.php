@@ -1,3 +1,40 @@
+<?php
+require 'sqlicon.php';
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    if ($name == "" || $phone == "" || $email == "" || $password == "") {
+        echo '<script>alert("Please fill all required fields.");window.location.href = "signup.php";</script>';
+    }
+    else if ($password !== $confirm_password) {
+        echo '<script>alert("Passwords do not match.");window.location.href = "signup.php";</script>';
+    }
+    else {
+        // Check if email already exists
+        $check = mysqli_prepare($con, "SELECT id FROM users WHERE email = ?");
+        mysqli_stmt_bind_param($check, "s", $email);
+        mysqli_stmt_execute($check);
+        mysqli_stmt_store_result($check);
+
+        if (mysqli_stmt_num_rows($check) > 0) {
+            echo '<script>alert("An account with that email already exists.");window.location.href = "signup.php";</script>';
+        } else {
+            // Insert new user
+            $insert = mysqli_prepare($con, "INSERT INTO users (name, phone, email, password, role) VALUES (?, ?, ?, ?, 'user')");
+            mysqli_stmt_bind_param($insert, "ssss", $name, $phone, $email, $password);
+            mysqli_stmt_execute($insert);
+
+            header("Location: login.php?registered=1");
+            exit;
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +62,8 @@
             </ul>
         </div>
         <div class="reg">
-            <button class="login"><a href="./login.html">Login</a></button>
-            <button class="signup"><a href="./signup.html">Signup</a></button>
+            <button class="login"><a href="./login.php">Login</a></button>
+            <button class="signup"><a href="./signup.php">Signup</a></button>
         </div>
     </nav>
 
@@ -35,15 +72,15 @@
             <h2 class="wlc">Create Account</h2>
             <p>Sign up to get started</p>
         </div>
-        <form action="./login.php" method="POST" class="form">
+        <form action="./signup.php" method="POST" class="form">
             <input type="text"name="name" placeholder="Full name"required>
-            <input type="tel"name="name" placeholder="Phone number"required>
+            <input type="tel"name="phone" placeholder="Phone number"required>
             <input type="email" name="email" placeholder="Email address" required>
             <input type="password" name="password" placeholder="Create password" required>
             <input type="password" name="confirm_password" placeholder="Confirm password" required>
             
-            <button type="submit">Sign Up </button>
-            <p>Already have an account? <a href="./login.html">Login</a></p>
+            <button type="submit" name="submit">Sign Up </button>
+            <p>Already have an account? <a href="./login.php">Login</a></p>
         </form>
     </section>
 
